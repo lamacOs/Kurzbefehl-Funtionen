@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>lamacOs Kurzbefehle Funktionen</title>
+<style>
+body { font-family: system-ui; background: #0f172a; color: white; margin: 0; padding: 20px; }
+h1 { text-align: center; margin-bottom: 20px; }
+.container { max-width: 900px; margin: auto; }
+.card { background: #1e293b; padding: 16px; border-radius: 12px; margin-bottom: 12px; }
+.link { background: #020617; padding: 8px; border-radius: 6px; font-family: monospace; word-break: break-all; }
+button { margin-top: 8px; padding: 8px 12px; border: none; border-radius: 6px; background: #38bdf8; color: black; cursor: pointer; }
+.guide { background: #1e293b; padding: 20px; border-radius: 12px; margin-bottom: 20px; }
+</style>
+</head>
+<body>
+
+<div class="container">
+<h1>lamacOs Kurzbefehle Funktionen</h1>
+
+<div class="guide">
+<h2>Anleitung</h2>
+<p>
+1. Kopieren Sie den Link der gewünschten Funktion.<br>
+2. Öffnen Sie die Kurzbefehle App.<br>
+3. Fügen Sie die Aktion <b>„Inhalte von URL abrufen“</b> hinzu.<br>
+4. Fügen Sie den kopierten Link ein.<br>
+5. Falls Eingabe nötig ist, fügen Sie eine Variable am Ende hinzu (z. B. „Nach Eingabe fragen“).
+</p>
+</div>
+
+<div id="functions"></div>
+
+<script>
+// Liste aller Funktionen
+const functions = [
+{ name: "Zufälliger Witz", link: "https://official-joke-api.appspot.com/random_joke", input: "keine" },
+{ name: "Zufälliger Fakt", link: "https://uselessfacts.jsph.pl/random.txt?language=de", input: "keine" },
+{ name: "Zufällige Zahl 1-100", link: "https://www.randomnumberapi.com/api/v1.0/random?min=1&max=100", input: "keine" },
+{ name: "IP-Adresse abrufen", link: "https://ipinfo.io/ip", input: "keine" },
+{ name: "IP Details", link: "https://ipinfo.io/json", input: "keine" },
+{ name: "Zufälliges Meme", link: "https://meme-api.com/gimme", input: "keine" },
+{ name: "Chuck Norris Witz", link: "https://api.chucknorris.io/jokes/random", input: "keine" },
+{ name: "Zufälliges Zitat", link: "https://api.quotable.io/random", input: "keine" },
+{ name: "Fun Fact über Zahlen", link: "http://numbersapi.com/random", input: "keine" },
+{ name: "Math Fact", link: "http://numbersapi.com/random/math", input: "keine" },
+{ name: "Aktuelles Wetter", link: "https://wttr.in/?format=3", input: "keine" },
+{ name: "Wetter für Stadt", link: "https://wttr.in/London?format=3", input: "Stadt" },
+{ name: "Sonnenaufgang/-untergang", link: "https://api.sunrise-sunset.org/json?lat=52.52&lng=13.41&formatted=0", input: "keine" },
+{ name: "QR-Code generieren", link: "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=TEXT", input: "Text" },
+{ name: "Random Dog Image", link: "https://dog.ceo/api/breeds/image/random", input: "keine" },
+{ name: "Random Cat Image", link: "https://aws.random.cat/meow", input: "keine" },
+{ name: "Random Fox Image", link: "https://randomfox.ca/floof/", input: "keine" },
+{ name: "Random Bird Image", link: "https://shibe.online/api/birds?count=1", input: "keine" },
+{ name: "Random Meme Image", link: "https://meme-api.com/gimme", input: "keine" },
+{ name: "Random Decimal Number", link: "https://www.randomnumberapi.com/api/v1.0/random?min=0&max=1", input: "keine" },
+{ name: "Random Color", link: "https://www.colr.org/json/color/random", input: "keine" },
+{ name: "Random Hex Color", link: "https://singlecolorimage.com/get/ff0000/100x100", input: "keine" },
+{ name: "Minecraft Server Status", link: "https://api.mcsrvstat.us/2/minecraftserver.com", input: "Server-IP" },
+{ name: "Pokemon Random", link: "https://pokeapi.co/api/v2/pokemon?limit=1&offset=random", input: "keine" },
+{ name: "Random Trivia", link: "https://opentdb.com/api.php?amount=1", input: "keine" },
+{ name: "Cat Fact", link: "https://catfact.ninja/fact", input: "keine" },
+{ name: "Dog Fact", link: "https://dog-api.kinduff.com/api/facts?number=1", input: "keine" },
+{ name: "Random Advice", link: "https://api.adviceslip.com/advice", input: "keine" },
+{ name: "Random Activity", link: "https://www.boredapi.com/api/activity", input: "keine" },
+{ name: "Random Recipe", link: "https://www.themealdb.com/api/json/v1/1/random.php", input: "keine" },
+{ name: "Base64 Encode", link: "https://www.base64encode.org/api?text=TEXT", input: "Text" },
+{ name: "Base64 Decode", link: "https://www.base64decode.org/api?text=TEXT", input: "Text" },
+{ name: "URL Encode", link: "https://www.urlencoder.org/api?text=TEXT", input: "Text" },
+{ name: "URL Decode", link: "https://www.urldecoder.org/api?text=TEXT", input: "Text" },
+{ name: "Random NFL Score", link: "https://www.thesportsdb.com/api/v1/json/3/eventslast.php?id=4391", input: "keine" },
+{ name: "Random NBA Score", link: "https://www.thesportsdb.com/api/v1/json/3/eventslast.php?id=4387", input: "keine" },
+{ name: "Astronomy Picture of the Day", link: "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY", input: "keine" },
+{ name: "ISS Current Location", link: "http://api.open-notify.org/iss-now.json", input: "keine" },
+{ name: "Mars Rover Photos", link: "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=DEMO_KEY", input: "keine" },
+{ name: "Random Space Fact", link: "https://api.le-systeme-solaire.net/rest/bodies/earth", input: "keine" }
+];
+
+// Rendern der Karten
+const container = document.getElementById("functions");
+functions.forEach((f, i)=>{
+  const card = document.createElement("div");
+  card.className = "card";
+  card.innerHTML = `
+    <h3>${f.name}</h3>
+    <p>Eingabe: ${f.input}</p>
+    <div class="link" id="link${i}">${f.link}</div>
+    <button onclick="copyLink('link${i}')">Link kopieren</button>
+  `;
+  container.appendChild(card);
+});
+
+function copyLink(id){
+  const text = document.getElementById(id).innerText;
+  navigator.clipboard.writeText(text);
+  alert("Link kopiert!");
+}
+</script>
+</body>
+</html>
