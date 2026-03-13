@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>lamacOs Kurzbefehle Funktionen</title>
+<title>lamacOs Kurzbefehle Tools</title>
 <style>
 body { font-family: system-ui; background: #0f172a; color: white; margin: 0; padding: 20px; }
 h1 { text-align: center; margin-bottom: 20px; }
@@ -17,7 +17,7 @@ button { margin-top: 8px; padding: 8px 12px; border: none; border-radius: 6px; b
 <body>
 
 <div class="container">
-<h1>lamacOs Kurzbefehle Funktionen</h1>
+<h1>lamacOs Kurzbefehle Tools</h1>
 
 <div class="guide">
 <h2>Anleitung</h2>
@@ -26,60 +26,50 @@ button { margin-top: 8px; padding: 8px 12px; border: none; border-radius: 6px; b
 2. Öffnen Sie die Kurzbefehle App.<br>
 3. Fügen Sie die Aktion <b>„Inhalte von URL abrufen“</b> hinzu.<br>
 4. Fügen Sie den kopierten Link ein.<br>
-5. Falls Eingabe nötig ist, fügen Sie eine Variable am Ende hinzu (z. B. „Nach Eingabe fragen“).
+5. Falls Eingabe nötig ist, hängen Sie die Variable an den Link (z. B. „Nach Eingabe fragen“).
 </p>
 </div>
 
 <div id="functions"></div>
 
 <script>
-// Liste aller Funktionen
+// 30 praktische Funktionen
 const functions = [
-{ name: "Zufälliger Witz", link: "https://official-joke-api.appspot.com/random_joke", input: "keine" },
-{ name: "Zufälliger Fakt", link: "https://uselessfacts.jsph.pl/random.txt?language=de", input: "keine" },
-{ name: "Zufällige Zahl 1-100", link: "https://www.randomnumberapi.com/api/v1.0/random?min=1&max=100", input: "keine" },
-{ name: "IP-Adresse abrufen", link: "https://ipinfo.io/ip", input: "keine" },
-{ name: "IP Details", link: "https://ipinfo.io/json", input: "keine" },
-{ name: "Zufälliges Meme", link: "https://meme-api.com/gimme", input: "keine" },
-{ name: "Chuck Norris Witz", link: "https://api.chucknorris.io/jokes/random", input: "keine" },
-{ name: "Zufälliges Zitat", link: "https://api.quotable.io/random", input: "keine" },
-{ name: "Fun Fact über Zahlen", link: "http://numbersapi.com/random", input: "keine" },
-{ name: "Math Fact", link: "http://numbersapi.com/random/math", input: "keine" },
-{ name: "Aktuelles Wetter", link: "https://wttr.in/?format=3", input: "keine" },
-{ name: "Wetter für Stadt", link: "https://wttr.in/London?format=3", input: "Stadt" },
-{ name: "Sonnenaufgang/-untergang", link: "https://api.sunrise-sunset.org/json?lat=52.52&lng=13.41&formatted=0", input: "keine" },
-{ name: "QR-Code generieren", link: "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=TEXT", input: "Text" },
-{ name: "Random Dog Image", link: "https://dog.ceo/api/breeds/image/random", input: "keine" },
-{ name: "Random Cat Image", link: "https://aws.random.cat/meow", input: "keine" },
-{ name: "Random Fox Image", link: "https://randomfox.ca/floof/", input: "keine" },
-{ name: "Random Bird Image", link: "https://shibe.online/api/birds?count=1", input: "keine" },
-{ name: "Random Meme Image", link: "https://meme-api.com/gimme", input: "keine" },
-{ name: "Random Decimal Number", link: "https://www.randomnumberapi.com/api/v1.0/random?min=0&max=1", input: "keine" },
-{ name: "Random Color", link: "https://www.colr.org/json/color/random", input: "keine" },
-{ name: "Random Hex Color", link: "https://singlecolorimage.com/get/ff0000/100x100", input: "keine" },
-{ name: "Minecraft Server Status", link: "https://api.mcsrvstat.us/2/minecraftserver.com", input: "Server-IP" },
-{ name: "Pokemon Random", link: "https://pokeapi.co/api/v2/pokemon?limit=1&offset=random", input: "keine" },
-{ name: "Random Trivia", link: "https://opentdb.com/api.php?amount=1", input: "keine" },
-{ name: "Cat Fact", link: "https://catfact.ninja/fact", input: "keine" },
-{ name: "Dog Fact", link: "https://dog-api.kinduff.com/api/facts?number=1", input: "keine" },
-{ name: "Random Advice", link: "https://api.adviceslip.com/advice", input: "keine" },
-{ name: "Random Activity", link: "https://www.boredapi.com/api/activity", input: "keine" },
-{ name: "Random Recipe", link: "https://www.themealdb.com/api/json/v1/1/random.php", input: "keine" },
+{ name: "Zeichen zählen", link: "https://lamacos.github.io/lamacOs-Kurzbefehle/api/zeichenzaehlen.txt", input: "Text" },
+{ name: "Wörter zählen", link: "https://lamacos.github.io/lamacOs-Kurzbefehle/api/woerterzaehlen.txt", input: "Text" },
+{ name: "Text in Großbuchstaben", link: "https://lamacos.github.io/lamacOs-Kurzbefehle/api/gross.txt", input: "Text" },
+{ name: "Text in Kleinbuchstaben", link: "https://lamacos.github.io/lamacOs-Kurzbefehle/api/klein.txt", input: "Text" },
+{ name: "Text rückwärts", link: "https://lamacos.github.io/lamacOs-Kurzbefehle/api/rueckwaerts.txt", input: "Text" },
+{ name: "Wortalphabetisch sortieren", link: "https://lamacos.github.io/lamacOs-Kurzbefehle/api/alphabet.txt", input: "Text" },
+{ name: "Prozentrechner", link: "https://lamacos.github.io/lamacOs-Kurzbefehle/api/prozent.txt", input: "Zahl, Prozent" },
+{ name: "Durchschnitt berechnen", link: "https://lamacos.github.io/lamacOs-Kurzbefehle/api/durchschnitt.txt", input: "Liste Zahlen" },
+{ name: "Zufällige Zahl", link: "https://www.randomnumberapi.com/api/v1.0/random?min=1&max=100", input: "keine" },
+{ name: "Zufall aus Liste", link: "https://lamacos.github.io/lamacOs-Kurzbefehle/api/zufallsliste.txt", input: "Liste" },
 { name: "Base64 Encode", link: "https://www.base64encode.org/api?text=TEXT", input: "Text" },
 { name: "Base64 Decode", link: "https://www.base64decode.org/api?text=TEXT", input: "Text" },
 { name: "URL Encode", link: "https://www.urlencoder.org/api?text=TEXT", input: "Text" },
 { name: "URL Decode", link: "https://www.urldecoder.org/api?text=TEXT", input: "Text" },
-{ name: "Random NFL Score", link: "https://www.thesportsdb.com/api/v1/json/3/eventslast.php?id=4391", input: "keine" },
-{ name: "Random NBA Score", link: "https://www.thesportsdb.com/api/v1/json/3/eventslast.php?id=4387", input: "keine" },
-{ name: "Astronomy Picture of the Day", link: "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY", input: "keine" },
-{ name: "ISS Current Location", link: "http://api.open-notify.org/iss-now.json", input: "keine" },
-{ name: "Mars Rover Photos", link: "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=DEMO_KEY", input: "keine" },
-{ name: "Random Space Fact", link: "https://api.le-systeme-solaire.net/rest/bodies/earth", input: "keine" }
+{ name: "IP-Adresse abrufen", link: "https://ipinfo.io/ip", input: "keine" },
+{ name: "IP Details abrufen", link: "https://ipinfo.io/json", input: "keine" },
+{ name: "Website erreichbar prüfen", link: "https://lamacos.github.io/lamacOs-Kurzbefehle/api/checksite.txt", input: "URL" },
+{ name: "Domain Whois", link: "https://lamacos.github.io/lamacOs-Kurzbefehle/api/whois.txt", input: "Domain" },
+{ name: "Robots.txt anzeigen", link: "https://lamacos.github.io/lamacOs-Kurzbefehle/api/robots.txt", input: "Domain" },
+{ name: "Sitemap anzeigen", link: "https://lamacos.github.io/lamacOs-Kurzbefehle/api/sitemap.txt", input: "Domain" },
+{ name: "QR-Code generieren", link: "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=TEXT", input: "Text" },
+{ name: "Farbe HEX → RGB", link: "https://lamacos.github.io/lamacOs-Kurzbefehle/api/hex2rgb.txt", input: "HEX" },
+{ name: "Farbe RGB → HEX", link: "https://lamacos.github.io/lamacOs-Kurzbefehle/api/rgb2hex.txt", input: "RGB" },
+{ name: "Favicon einer Website", link: "https://lamacos.github.io/lamacOs-Kurzbefehle/api/favicon.txt", input: "URL" },
+{ name: "Bildgröße abrufen", link: "https://lamacos.github.io/lamacOs-Kurzbefehle/api/bildgroesse.txt", input: "Bild-URL" },
+{ name: "Datum / Uhrzeit abrufen", link: "https://lamacos.github.io/lamacOs-Kurzbefehle/api/datum.txt", input: "keine" },
+{ name: "Zufällige Entscheidung", link: "https://lamacos.github.io/lamacOs-Kurzbefehle/api/entscheidung.txt", input: "Option1, Option2" },
+{ name: "Minecraft Server Status", link: "https://api.mcsrvstat.us/2/minecraftserver.com", input: "Server-IP" },
+{ name: "Währungsrechner (statische Kurse)", link: "https://lamacos.github.io/lamacOs-Kurzbefehle/api/waehrung.txt", input: "Betrag, Währung" },
+{ name: "Einheitenrechner", link: "https://lamacos.github.io/lamacOs-Kurzbefehle/api/einheiten.txt", input: "Wert, Einheit" }
 ];
 
-// Rendern der Karten
+// Karten rendern
 const container = document.getElementById("functions");
-functions.forEach((f, i)=>{
+functions.forEach((f,i)=>{
   const card = document.createElement("div");
   card.className = "card";
   card.innerHTML = `
@@ -97,5 +87,7 @@ function copyLink(id){
   alert("Link kopiert!");
 }
 </script>
+
+</div>
 </body>
 </html>
